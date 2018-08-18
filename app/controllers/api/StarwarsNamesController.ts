@@ -4,9 +4,8 @@ import {
     queryParam
 } from 'inversify-express-utils';
 import { ApiPath } from "swagger-express-ts";
-import * as names from 'starwars-names';
 import { ApiOperationGet, SwaggerDefinitionConstant } from 'swagger-express-ts';
-import * as matchSorter from 'match-sorter';
+import StarwarsNamesService from '../../starwars-names/StarwarsNamesService';
 
 @ApiPath({
     path: "/api/starwars-names",
@@ -15,9 +14,17 @@ import * as matchSorter from 'match-sorter';
 @controller('/api/starwars-names')
 export default class StarWarsNamesController {
 
+    private starwarsNamesService: StarwarsNamesService;
+
+    constructor(
+        starwarsNamesService: StarwarsNamesService
+    ) {
+        this.starwarsNamesService = starwarsNamesService;
+    }
+
     @ApiOperationGet({
         path: '/',
-        description: 'Retrieve a list of starwars names.',
+        description: 'Retrieve a list of names.',
         responses: {
             200: {
                 description: 'Success',
@@ -27,12 +34,12 @@ export default class StarWarsNamesController {
     })
     @httpGet('/')
     public getAll(): any {
-        return names.all;
+        return this.starwarsNamesService.getNames();
     }
 
     @ApiOperationGet({
         path: '/random',
-        description: 'Retrieve an random list of names.',
+        description: 'Retrieve a list of random names.',
         parameters: {
             query: {
                 "count": {
@@ -54,13 +61,12 @@ export default class StarWarsNamesController {
     public getRandom(
         @queryParam("count") count: number
     ): any {
-        if (!count) { count = 1; }
-        return names.random(count);
+        return this.starwarsNamesService.getRandomNames(count);
     }
 
     @ApiOperationGet({
         path: '/search',
-        description: 'Retrieve an search list of names.',
+        description: 'Retrieve a list of names filtered by a search term.',
         parameters: {
             query: {
                 "term": {
@@ -82,6 +88,6 @@ export default class StarWarsNamesController {
     public getSearch(
         @queryParam("term") term: string
     ): any {
-        return matchSorter(names.all, term);
+        return this.starwarsNamesService.searchNames(term);
     }
 }

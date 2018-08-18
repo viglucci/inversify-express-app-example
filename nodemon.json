@@ -1,7 +1,7 @@
 {
     "verbose": true,
     "ext": "*.ts",
-    "exec": "ts-node ./app/bootstrap.ts",
+    "exec": "ts-node ./app/start.ts",
     "ignore": [
         "*.test.js",
         "fixtures/*"

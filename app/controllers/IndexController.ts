@@ -2,7 +2,7 @@ import { controller, httpGet } from 'inversify-express-utils';
 import { Request, Response } from 'express';
 
 @controller('/')
-export default class HomeController {
+export default class IndexController {
 
     @httpGet('/')
     public get(

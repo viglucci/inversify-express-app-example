@@ -1,2 +1,4 @@
-export { default as HomeController } from "./HomeController";
-export { default as ApiStarwarsNamesController } from "./api/StarwarsNamesController";
+import * as ApiControllers from "./api/_index";
+
+export { default as IndexController } from "./indexController";
+export default ApiControllers;

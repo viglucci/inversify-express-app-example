@@ -4,17 +4,24 @@ import * as swagger from "swagger-express-ts";
 import * as bodyParser from 'body-parser';
 import * as path from 'path';
 import { InversifyExpressServer } from 'inversify-express-utils';
+import { buildProviderModule } from "inversify-binding-decorators";
 import { Container } from 'inversify';
 
 import './controllers/_index';
 
 let container = new Container();
 
+container.load(buildProviderModule());
+
 let server = new InversifyExpressServer(container);
 
 server.setConfig((app) => {
-    app.use('/api-docs/swagger', express.static(path.resolve(`${__dirname}/../static/swagger`)));
-    app.use('/api-docs/swagger/assets', express.static(path.resolve(`${__dirname}/../node_modules/swagger-ui-dist`)));
+
+    const swaggerUiPath = path.resolve(`${__dirname}/../static/swagger`);
+    const swaggerUiAssetsPath = path.resolve(`${__dirname}/../node_modules/swagger-ui-dist`);
+
+    app.use('/api-docs/swagger', express.static(swaggerUiPath));
+    app.use('/api-docs/swagger/assets', express.static(swaggerUiAssetsPath));
     app.use(swagger.express(
         {
             definition: {
@@ -26,9 +33,11 @@ server.setConfig((app) => {
             }
         }
     ));
+
     app.use(bodyParser.urlencoded({
         extended: true
     }));
+
     app.use(bodyParser.json());
 });
 
@@ -45,6 +54,4 @@ server.setErrorConfig((app: any) => {
 
 let serverInstance = server.build();
 
-serverInstance.listen(3000);
-
-console.log('Server started on port 3000 :)');
+export default serverInstance;
