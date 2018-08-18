@@ -7,7 +7,8 @@
     "scripts": {
         "test": "nyc --clean --all --require ts-node/register --require reflect-metadata/Reflect --extension .ts -- mocha --exit --timeout 5000",
         "test:all": "npm test **/*.spec.ts",
-        "dev": "nodemon"
+        "dev": "nodemon",
+        "build": "tsc"
     },
     "dependencies": {
         "@types/match-sorter": "^2.2.0",

@@ -13,3 +13,7 @@ npm install -g nodemon
 ```
 nodemon
 ```
+
+## Open
+
+Visit http://localhost:3000/ in your browser.
