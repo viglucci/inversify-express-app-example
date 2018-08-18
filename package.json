@@ -1,51 +1,51 @@
 {
-  "name": "inversify-express-example",
-  "version": "1.0.0",
-  "description": "Examples for using inversify with expressjs.",
-  "author": "kviglucci <kviglucci@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "test": "nyc --clean --all --require ts-node/register --require reflect-metadata/Reflect --extension .ts -- mocha --exit --timeout 5000",
-    "test:all": "npm test **/*.spec.ts",
-    "dev": "nodemon"
-  },
-  "dependencies": {
-    "@types/match-sorter": "^2.2.0",
-    "body-parser": "1.18.3",
-    "express": "4.16.2",
-    "helmet": "3.13.0",
-    "inversify": "4.13.0",
-    "inversify-binding-decorators": "3.2.0",
-    "inversify-express-utils": "6.1.0",
-    "inversify-logger-middleware": "3.1.0",
-    "match-sorter": "^2.2.3",
-    "mongodb": "3.1.2",
-    "morgan": "1.9.0",
-    "pg": "7.4.1",
-    "reflect-metadata": "0.1.12",
-    "starwars-names": "^1.6.0",
-    "swagger-express-ts": "^1.0.0",
-    "swagger-ui-dist": "^3.18.1",
-    "typeorm": "0.2.7"
-  },
-  "devDependencies": {
-    "@types/bluebird": "3.5.23",
-    "@types/body-parser": "1.17.0",
-    "@types/chai": "4.1.4",
-    "@types/express": "4.16.0",
-    "@types/helmet": "0.0.38",
-    "@types/mocha": "5.2.3",
-    "@types/mongodb": "3.1.4",
-    "@types/morgan": "1.7.35",
-    "chai": "4.1.2",
-    "mocha": "5.2.0",
-    "nyc": "12.0.1",
-    "ts-node": "7.0.1",
-    "typescript": "2.7.2"
-  },
-  "nyc": {
-    "exclude": [
-      "**/*.spec.ts"
-    ]
-  }
+    "name": "inversify-express-app-example",
+    "version": "1.0.0",
+    "description": "Example application for using inversify with expressjs.",
+    "author": "kviglucci <kviglucci@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "test": "nyc --clean --all --require ts-node/register --require reflect-metadata/Reflect --extension .ts -- mocha --exit --timeout 5000",
+        "test:all": "npm test **/*.spec.ts",
+        "dev": "nodemon"
+    },
+    "dependencies": {
+        "@types/match-sorter": "^2.2.0",
+        "body-parser": "1.18.3",
+        "express": "4.16.2",
+        "helmet": "3.13.0",
+        "inversify": "4.13.0",
+        "inversify-binding-decorators": "3.2.0",
+        "inversify-express-utils": "6.1.0",
+        "inversify-logger-middleware": "3.1.0",
+        "match-sorter": "^2.2.3",
+        "mongodb": "3.1.2",
+        "morgan": "1.9.0",
+        "pg": "7.4.1",
+        "reflect-metadata": "0.1.12",
+        "starwars-names": "^1.6.0",
+        "swagger-express-ts": "^1.0.0",
+        "swagger-ui-dist": "^3.18.1",
+        "typeorm": "0.2.7"
+    },
+    "devDependencies": {
+        "@types/bluebird": "3.5.23",
+        "@types/body-parser": "1.17.0",
+        "@types/chai": "4.1.4",
+        "@types/express": "4.16.0",
+        "@types/helmet": "0.0.38",
+        "@types/mocha": "5.2.3",
+        "@types/mongodb": "3.1.4",
+        "@types/morgan": "1.7.35",
+        "chai": "4.1.2",
+        "mocha": "5.2.0",
+        "nyc": "12.0.1",
+        "ts-node": "7.0.1",
+        "typescript": "2.7.2"
+    },
+    "nyc": {
+        "exclude": [
+            "**/*.spec.ts"
+        ]
+    }
 }
