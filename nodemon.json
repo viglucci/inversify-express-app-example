@@ -1,0 +1,9 @@
+{
+    "verbose": true,
+    "ext": "*.ts",
+    "exec": "ts-node ./app/bootstrap.ts",
+    "ignore": [
+        "*.test.js",
+        "fixtures/*"
+    ]
+}
