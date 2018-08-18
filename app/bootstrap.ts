@@ -19,8 +19,8 @@ server.setConfig((app) => {
         {
             definition: {
                 info: {
-                    title: "API",
-                    version: "1.0"
+                    title: process.env.npm_package_name,
+                    version: process.env.npm_package_version
                 },
                 // Models can be defined here
             }
