@@ -42,8 +42,8 @@ export default class StarWarsNamesController {
         description: 'Retrieve a list of random names.',
         parameters: {
             query: {
-                "count": {
-                    description: "Howmany names to retrieve.",
+                count: {
+                    description: "How many names to retrieve.",
                     required: false,
                     allowEmptyValue: false,
                     type: "number"
@@ -69,7 +69,7 @@ export default class StarWarsNamesController {
         description: 'Retrieve a list of names filtered by a search term.',
         parameters: {
             query: {
-                "term": {
+                term: {
                     description: "The search term.",
                     required: true,
                     allowEmptyValue: false,
